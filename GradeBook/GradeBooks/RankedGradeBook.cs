@@ -19,7 +19,7 @@ namespace GradeBook.GradeBooks
                 throw new InvalidOperationException("Ranked-grading requires a minimum of 5 students to work");
                
             }
-            var test = Students.Count * (0.2);
+            
             var threshold = (int)Math.Ceiling(Students.Count*0.2);
             var grades = Students.OrderByDescending(e => e.AverageGrade).Select(e => e.AverageGrade).ToList();
             if(Students.Count >= 5){
@@ -33,7 +33,7 @@ namespace GradeBook.GradeBooks
                     return 'D';
                 else return 'F';
             }
-            return base.GetLetterGrade(averageGrade);
+            return GetLetterGrade(averageGrade);
         }
     }
 }
